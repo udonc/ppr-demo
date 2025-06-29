@@ -102,7 +102,7 @@ export async function getProductPrice(id: string): Promise<number> {
 
 export async function getProductStock(id: string): Promise<number> {
   // APIコールの遅延をシミュレート
-  await new Promise(resolve => setTimeout(resolve, 300));
+  await new Promise(resolve => setTimeout(resolve, 2000));
   
   const product = getProductById(id);
   if (!product) {
