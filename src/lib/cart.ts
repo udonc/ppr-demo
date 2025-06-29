@@ -4,6 +4,8 @@ import { Cart, CartItem } from '@/types';
 const CART_COOKIE_NAME = 'cart';
 
 export async function getCart(): Promise<Cart> {
+  // APIコールの遅延をシミュレート
+  await new Promise(resolve => setTimeout(resolve, 2000));
   const cookieStore = await cookies();
   const cartCookie = cookieStore.get(CART_COOKIE_NAME);
   

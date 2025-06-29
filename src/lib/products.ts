@@ -83,3 +83,33 @@ export function getProductsByCategory(category: string): Product[] {
 export function getAllCategories(): string[] {
   return Array.from(new Set(products.map(product => product.category)));
 }
+
+// 動的データ取得関数（実際のAPIコールをシミュレート）
+export async function getProductPrice(id: string): Promise<number> {
+  // APIコールの遅延をシミュレート
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  
+  const product = getProductById(id);
+  if (!product) {
+    throw new Error('Product not found');
+  }
+  
+  // 実際の実装では外部APIから最新価格を取得
+  // ここではランダムな変動をシミュレート（±5%）
+  const variation = 0.95 + Math.random() * 0.1;
+  return Math.round(product.price * variation);
+}
+
+export async function getProductStock(id: string): Promise<number> {
+  // APIコールの遅延をシミュレート
+  await new Promise(resolve => setTimeout(resolve, 300));
+  
+  const product = getProductById(id);
+  if (!product) {
+    throw new Error('Product not found');
+  }
+  
+  // 実際の実装では外部APIから最新在庫を取得
+  // ここではランダムな在庫数をシミュレート
+  return Math.max(0, product.stock - Math.floor(Math.random() * 5));
+}
