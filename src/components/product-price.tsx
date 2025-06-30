@@ -4,7 +4,7 @@ interface ProductPriceProps {
   productId: string;
 }
 
-export async function ProductPrice({ productId }: ProductPriceProps) {
+export const ProductPrice = async ({ productId }: ProductPriceProps) => {
   // 実際のAPIコールをシミュレート（動的データ取得）
   const price = await getProductPrice(productId);
   

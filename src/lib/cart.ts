@@ -3,7 +3,7 @@ import { Cart, CartItem } from '@/types';
 
 const CART_COOKIE_NAME = 'cart';
 
-export async function getCart(): Promise<Cart> {
+export const getCart = async (): Promise<Cart> => {
   // APIコールの遅延をシミュレート
   await new Promise(resolve => setTimeout(resolve, 2000));
   const cookieStore = await cookies();
@@ -20,7 +20,7 @@ export async function getCart(): Promise<Cart> {
   }
 }
 
-export async function addToCart(item: CartItem): Promise<void> {
+export const addToCart = async (item: CartItem): Promise<void> => {
   const cart = await getCart();
   
   const existingItemIndex = cart.items.findIndex(
@@ -47,7 +47,7 @@ export async function addToCart(item: CartItem): Promise<void> {
   });
 }
 
-export async function updateCartItem(productId: string, quantity: number, size?: string, color?: string): Promise<void> {
+export const updateCartItem = async (productId: string, quantity: number, size?: string, color?: string): Promise<void> => {
   const cart = await getCart();
   
   const itemIndex = cart.items.findIndex(
@@ -76,16 +76,16 @@ export async function updateCartItem(productId: string, quantity: number, size?:
   }
 }
 
-export async function removeFromCart(productId: string, size?: string, color?: string): Promise<void> {
+export const removeFromCart = async (productId: string, size?: string, color?: string): Promise<void> => {
   await updateCartItem(productId, 0, size, color);
-}
+};
 
-export async function clearCart(): Promise<void> {
+export const clearCart = async (): Promise<void> => {
   const cookieStore = await cookies();
   cookieStore.delete(CART_COOKIE_NAME);
-}
+};
 
-export async function getCartItemsCount(): Promise<number> {
+export const getCartItemsCount = async (): Promise<number> => {
   const cart = await getCart();
   return cart.items.reduce((total, item) => total + item.quantity, 0);
-}
+};

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import { CartIcon } from './cart-icon';
 
-function CartIconSkeleton() {
+const CartIconSkeleton = () => {
   return (
     <div className="relative flex items-center">
       <svg
@@ -23,7 +23,7 @@ function CartIconSkeleton() {
   );
 }
 
-export function Header() {
+export const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-gray-900/95 dark:supports-[backdrop-filter]:bg-gray-900/60">
       <div className="container mx-auto px-4">

@@ -12,7 +12,7 @@ export interface DeliveryEstimate {
 }
 
 // 営業日を計算（土日を除く）
-function addBusinessDays(date: Date, days: number): Date {
+const addBusinessDays = (date: Date, days: number): Date => {
   const result = new Date(date);
   let addedDays = 0;
   
@@ -25,10 +25,10 @@ function addBusinessDays(date: Date, days: number): Date {
   }
   
   return result;
-}
+};
 
 // 国と都市に基づいて配達日数を計算
-function calculateDeliveryDays(location: UserLocation): { min: number; max: number; express: boolean } {
+const calculateDeliveryDays = (location: UserLocation): { min: number; max: number; express: boolean } => {
   const { country, city } = location;
   
   // 日本国内
@@ -62,7 +62,7 @@ function calculateDeliveryDays(location: UserLocation): { min: number; max: numb
   return { min: 10, max: 14, express: false };
 }
 
-export async function getDeliveryEstimate(): Promise<DeliveryEstimate> {
+export const getDeliveryEstimate = async (): Promise<DeliveryEstimate> => {
   // APIコールの遅延をシミュレート
   await new Promise(resolve => setTimeout(resolve, 400));
   

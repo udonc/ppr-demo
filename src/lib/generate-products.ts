@@ -195,23 +195,23 @@ const descriptionTemplates = [
 let productIdCounter = 1;
 
 // ランダム要素選択
-function randomElement<T>(array: T[]): T {
+const randomElement = <T>(array: T[]): T => {
   return array[Math.floor(Math.random() * array.length)];
-}
+};
 
 // ランダム価格調整（±20%）
-function randomPrice(basePrice: number): number {
+const randomPrice = (basePrice: number): number => {
   const variation = 0.8 + Math.random() * 0.4;
   return Math.round(basePrice * variation);
-}
+};
 
 // ランダム在庫数
-function randomStock(): number {
+const randomStock = (): number => {
   return Math.floor(Math.random() * 101); // 0-100
-}
+};
 
 // カラー選択
-function selectColors(hasColors: boolean, category: string): string[] | undefined {
+const selectColors = (hasColors: boolean, category: string): string[] | undefined => {
   if (!hasColors) return undefined;
   
   const colorSet = category.includes('デニム') ? colorOptions.denim :
@@ -220,10 +220,10 @@ function selectColors(hasColors: boolean, category: string): string[] | undefine
                    colorOptions.basic;
   
   return colorSet.slice(0, 3 + Math.floor(Math.random() * 3));
-}
+};
 
 // サイズ選択
-function selectSizes(hasSizes: boolean, category: string): string[] | undefined {
+const selectSizes = (hasSizes: boolean, category: string): string[] | undefined => {
   if (!hasSizes) return undefined;
   
   if (category === 'シューズ') return sizeOptions.shoes;
@@ -232,10 +232,10 @@ function selectSizes(hasSizes: boolean, category: string): string[] | undefined 
   if (category === 'アクセサリー' && hasSizes) return sizeOptions.accessories;
   
   return sizeOptions.clothing;
-}
+};
 
 // 商品生成関数
-export function generateProducts(): Product[] {
+export const generateProducts = (): Product[] => {
   const products: Product[] = [];
   
   Object.entries(categoryTemplates).forEach(([category, template]) => {

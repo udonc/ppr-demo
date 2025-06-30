@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { products } from "@/lib/products";
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <section className="text-center mb-12">
@@ -58,4 +58,6 @@ export default function Home() {
       </section>
     </div>
   );
-}
+};
+
+export default Home;

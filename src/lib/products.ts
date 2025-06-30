@@ -4927,20 +4927,20 @@ export const products: Product[] = [
   }
 ];
 
-export function getProductById(id: string): Product | undefined {
+export const getProductById = (id: string): Product | undefined => {
   return products.find(product => product.id === id);
-}
+};
 
-export function getProductsByCategory(category: string): Product[] {
+export const getProductsByCategory = (category: string): Product[] => {
   return products.filter(product => product.category === category);
-}
+};
 
-export function getAllCategories(): string[] {
+export const getAllCategories = (): string[] => {
   return Array.from(new Set(products.map(product => product.category)));
-}
+};
 
 // 動的データ取得関数（実際のAPIコールをシミュレート）
-export async function getProductPrice(id: string): Promise<number> {
+export const getProductPrice = async (id: string): Promise<number> => {
   // APIコールの遅延をシミュレート
   await new Promise(resolve => setTimeout(resolve, 500));
   
@@ -4955,7 +4955,7 @@ export async function getProductPrice(id: string): Promise<number> {
   return Math.round(product.price * variation);
 }
 
-export async function getProductStock(id: string): Promise<number> {
+export const getProductStock = async (id: string): Promise<number> => {
   // APIコールの遅延をシミュレート
   await new Promise(resolve => setTimeout(resolve, 300));
   
@@ -4970,10 +4970,10 @@ export async function getProductStock(id: string): Promise<number> {
 }
 
 // おすすめ商品を取得（現在の商品と同じカテゴリからランダムに選択）
-export async function getRecommendedProducts(
+export const getRecommendedProducts = async (
   currentProductId: string,
   limit: number = 4
-): Promise<Product[]> {
+): Promise<Product[]> => {
   // APIコールの遅延をシミュレート
   await new Promise(resolve => setTimeout(resolve, 2000));
   

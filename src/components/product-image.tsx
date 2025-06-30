@@ -8,7 +8,7 @@ interface ProductImageProps {
   productName: string;
 }
 
-export function ProductImage({ images, productName }: ProductImageProps) {
+export const ProductImage = ({ images, productName }: ProductImageProps) => {
   const [selectedImage, setSelectedImage] = useState(0);
 
   if (images.length === 0) {

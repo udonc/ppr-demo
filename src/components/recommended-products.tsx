@@ -6,7 +6,7 @@ interface RecommendedProductsProps {
   currentProductId: string;
 }
 
-export async function RecommendedProducts({ currentProductId }: RecommendedProductsProps) {
+export const RecommendedProducts = async ({ currentProductId }: RecommendedProductsProps) => {
   const recommendedProducts = await getRecommendedProducts(currentProductId);
   
   if (recommendedProducts.length === 0) {

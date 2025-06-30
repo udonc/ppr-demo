@@ -1,6 +1,6 @@
 import { getDeliveryEstimate } from '@/lib/delivery';
 
-export async function DeliveryEstimate() {
+export const DeliveryEstimate = async () => {
   const estimate = await getDeliveryEstimate();
   
   // 日付フォーマット（日本語）

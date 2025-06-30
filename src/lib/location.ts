@@ -9,7 +9,7 @@ export interface UserLocation {
   timezone: string | null;
 }
 
-export async function getUserLocation(): Promise<UserLocation> {
+export const getUserLocation = async (): Promise<UserLocation> => {
   const headersList = await headers();
   
   // Vercelのジオロケーションヘッダーから情報を取得

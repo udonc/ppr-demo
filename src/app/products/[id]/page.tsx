@@ -14,28 +14,28 @@ import { CartItem } from '@/types';
 // PPRを有効化
 export const experimental_ppr = true;
 
-function PriceSkeleton() {
+const PriceSkeleton = () => {
   return (
     <div className="h-8 w-32 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
   );
-}
+};
 
-function StockSkeleton() {
+const StockSkeleton = () => {
   return (
     <div className="flex items-center gap-2">
       <div className="h-4 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
       <div className="h-4 w-24 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
     </div>
   );
-}
+};
 
-function DeliverySkeleton() {
+const DeliverySkeleton = () => {
   return (
     <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 h-[140px] animate-pulse" />
   );
-}
+};
 
-function RecommendedSkeleton() {
+const RecommendedSkeleton = () => {
   return (
     <div className="mt-12 border-t pt-8">
       <div className="h-8 w-48 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mb-6" />
@@ -50,13 +50,13 @@ function RecommendedSkeleton() {
       </div>
     </div>
   );
-}
+};
 
-export default async function ProductPage({
+const ProductPage = async ({
   params,
 }: {
   params: Promise<{ id: string }>;
-}) {
+}) => {
   const { id } = await params;
   const product = getProductById(id);
 
@@ -70,7 +70,7 @@ export default async function ProductPage({
   }
 
   // AddToCartコンポーネント用に動的に在庫を取得
-  async function DynamicAddToCart() {
+  const DynamicAddToCart = async () => {
     const currentStock = await getProductStock(id);
     return (
       <AddToCart
@@ -81,7 +81,7 @@ export default async function ProductPage({
         addToCartAction={addToCartAction}
       />
     );
-  }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -127,4 +127,6 @@ export default async function ProductPage({
       </Suspense>
     </div>
   );
-}
+};
+
+export default ProductPage;

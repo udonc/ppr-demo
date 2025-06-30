@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getCartItemsCount } from '@/lib/cart';
 
-export async function CartIcon() {
+export const CartIcon = async () => {
   const itemCount = await getCartItemsCount();
   
   return (

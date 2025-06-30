@@ -4,7 +4,7 @@ interface ProductStaticInfoProps {
   product: Product;
 }
 
-export function ProductStaticInfo({ product }: ProductStaticInfoProps) {
+export const ProductStaticInfo = ({ product }: ProductStaticInfoProps) => {
   return (
     <div className="space-y-6">
       <div>

@@ -12,13 +12,13 @@ interface AddToCartProps {
   addToCartAction: (item: CartItem) => Promise<void>;
 }
 
-export function AddToCart({ 
+export const AddToCart = ({ 
   productId, 
   availableSizes, 
   availableColors, 
   maxQuantity,
   addToCartAction
-}: AddToCartProps) {
+}: AddToCartProps) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [quantity, setQuantity] = useState(1);
