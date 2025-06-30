@@ -2,13 +2,13 @@ import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { getProductById, getProductStock } from '@/lib/products';
 import { addToCart } from '@/lib/cart';
-import { ProductImage } from '@/components/ProductImage';
-import { AddToCart } from '@/components/AddToCart';
-import { ProductPrice } from '@/components/ProductPrice';
-import { ProductStock } from '@/components/ProductStock';
-import { ProductStaticInfo } from '@/components/ProductStaticInfo';
-import { DeliveryEstimate } from '@/components/DeliveryEstimate';
-import { RecommendedProducts } from '@/components/RecommendedProducts';
+import { ProductImage } from '@/components/product-image';
+import { AddToCart } from '@/components/add-to-cart';
+import { ProductPrice } from '@/components/product-price';
+import { ProductStock } from '@/components/product-stock';
+import { ProductStaticInfo } from '@/components/product-static-info';
+import { DeliveryEstimate } from '@/components/delivery-estimate';
+import { RecommendedProducts } from '@/components/recommended-products';
 import { CartItem } from '@/types';
 
 // PPRを有効化

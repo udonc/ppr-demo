@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { CartIcon } from './CartIcon';
+import { CartIcon } from './cart-icon';
 
 function CartIconSkeleton() {
   return (
