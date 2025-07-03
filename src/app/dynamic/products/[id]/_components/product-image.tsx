@@ -29,6 +29,7 @@ export const ProductImage = ({ images, productName }: ProductImageProps) => {
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 50vw"
           priority
+          loading="eager"
         />
       </div>
       
